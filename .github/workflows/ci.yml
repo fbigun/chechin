@@ -21,14 +21,14 @@ jobs:
       with:
         python-version: 3.9
     - name: Install dependencies
-      env:
-        USERNAME: ${{ secrets.TBJ_USERNAME }}
-        PASSWD: ${{ secrets.TBJ_PASSWD }}
       run: |
         python -m pip install --upgrade pip
         pip install pipenv
         pipenv sync
     - name: Install browsers
-      run: python -m playwright install
+      run: pipenv run python -m playwright install
     - name: Run tests (Chromium and headless by default)
-      run: pytest
+      env:
+        USERNAME: ${{ secrets.TBJ_USERNAME }}
+        PASSWD: ${{ secrets.TBJ_PASSWD }}
+      run: pipenv run pytest

@@ -32,3 +32,5 @@ def test_checkin(gafan):
     page.waitForSelector("text=/.*点我签到.*/")
     page.click("text=/.*点我签到.*/")
     page.waitForSelector("text=/.*已签到.*/")
+    text = page.querySelector("#msg").innerText()
+    print(text)

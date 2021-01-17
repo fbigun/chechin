@@ -31,4 +31,4 @@ jobs:
       env:
         USERNAME: ${{ secrets.TBJ_USERNAME }}
         PASSWD: ${{ secrets.TBJ_PASSWD }}
-      run: pipenv run pytest
+      run: pipenv run pytest -s
